@@ -1,5 +1,6 @@
 // modules required for routing
 import express from 'express';
+import { CallbackError } from 'mongoose';
 const router = express.Router();
 export default router;
 
@@ -39,9 +40,20 @@ router.get('/add', (req, res, next) => {
 // POST process the Book Details page and create a new Book - CREATE
 router.post('/add', (req, res, next) => {
 
-    /*****************
-     * ADD CODE HERE *
-     *****************/
+    let newBook = new book
+    ({
+      "Title": req.body.title,
+      "Author": req.body.author,
+      "Genre": req.body.genre,
+      "Price": req.body.price
+    });
+    book.create(newBook, function(err:CallbackError){
+      if(err){
+        console.error(err);
+        res.end(err);
+      }
+      res.redirect('/books');
+    })
 
 });
 
