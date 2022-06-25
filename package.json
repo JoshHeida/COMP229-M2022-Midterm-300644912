@@ -41,7 +41,7 @@
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/JoshHeida/COMP229-M2022-Midterm-300644912"
   },
   "engines": {
     "node": "^18.1.0",
@@ -53,10 +53,10 @@
     "ExpressJS",
     "EJS"
   ],
-  "author": "Your Name Goes Here",
+  "author": "Josh Heida",
   "license": "ISC",
   "bugs": {
-    "url": ""
+    "url": "https://comp229-m2022-midterm-30064491.herokuapp.com/"
   },
   "homepage": ""
 }
