@@ -74,9 +74,21 @@ router.get('/:id', (req, res, next) => {
 // POST - process the information passed from the details form and update the document
 router.post('/:id', (req, res, next) => {
 
-    /*****************
-     * ADD CODE HERE *
-     *****************/
+  let id = req.params.id;
+  let updateBook = new book ({
+    "_id":id,
+    "Title": req.body.title,
+    "Author": req.body.author,
+    "Genre": req.body.genre,
+    "Price": req.body.price
+  })
+  book.updateOne({_id:id},updateBook, function(err:CallbackError){
+    if(err){
+      console.error(err);
+      res.end(err);
+    }
+    res.redirect('/books');
+  })
 
 });
 

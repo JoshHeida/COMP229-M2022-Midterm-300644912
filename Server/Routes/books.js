@@ -54,6 +54,21 @@ router.get('/:id', (req, res, next) => {
     });
 });
 router.post('/:id', (req, res, next) => {
+    let id = req.params.id;
+    let updateBook = new books_1.default({
+        "_id": id,
+        "Title": req.body.title,
+        "Author": req.body.author,
+        "Genre": req.body.genre,
+        "Price": req.body.price
+    });
+    books_1.default.updateOne({ _id: id }, updateBook, function (err) {
+        if (err) {
+            console.error(err);
+            res.end(err);
+        }
+        res.redirect('/books');
+    });
 });
 router.get('/delete/:id', (req, res, next) => {
 });
