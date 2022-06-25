@@ -50,7 +50,7 @@ router.get('/:id', (req, res, next) => {
             console.error(err);
             res.end(err);
         }
-        res.render('books/details', { title: 'Edit', page: 'edit', book: bookEdit });
+        res.render('books/details', { title: 'Edit', page: 'edit', books: bookEdit });
     });
 });
 router.post('/:id', (req, res, next) => {
