@@ -22,10 +22,23 @@ router.get('/', (req, res, next) => {
     });
 });
 router.get('/add', (req, res, next) => {
+    res.render('books/details', {
+        title: 'Add Book',
+        page: 'add',
+        books: ""
+    });
 });
 router.post('/add', (req, res, next) => {
 });
 router.get('/:id', (req, res, next) => {
+    let id = req.params.id;
+    books_1.default.findById(id, {}, {}, function (err, bookEdit) {
+        if (err) {
+            console.error(err);
+            res.end(err);
+        }
+        res.render('books/details', { title: 'Edit', page: 'edit', book: bookEdit });
+    });
 });
 router.post('/:id', (req, res, next) => {
 });
